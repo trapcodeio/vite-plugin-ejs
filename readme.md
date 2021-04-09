@@ -1,6 +1,6 @@
 # vite-plugin-ejs
 
-Use `ejs` template to parse your entrypoint i.e `index.html`
+Use [ejs](https://www.npmjs.com/package/ejs) template language to parse your entrypoint i.e `index.html`
 
 ### Install
 
