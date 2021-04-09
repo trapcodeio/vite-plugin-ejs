@@ -1,6 +1,6 @@
 # vite-plugin-ejs
 
-Use [ejs](https://www.npmjs.com/package/ejs) template language to parse your entrypoint i.e `index.html`
+Use [ejs](https://www.npmjs.com/package/ejs) template language in your entrypoint i.e `index.html`
 
 ### Install
 
@@ -39,7 +39,7 @@ export default defineConfig({
   <meta charset="UTF-8" />
   <link rel="icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><%=domain%> <%=title%></title>
+  <title><%=domain%> | <%=title%></title>
   
   <!-- Run Conditions-->
   <% if(isDev){ %>
