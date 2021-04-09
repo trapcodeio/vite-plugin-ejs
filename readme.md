@@ -16,7 +16,7 @@ File: **vite.config.js**
 
 ```javascript
 import {defineConfig} from "vite";
-import {ViteEjsPlugin} from "vite-ejs-plugin";
+import {ViteEjsPlugin} from "vite-plugin-ejs";
 
 export default defineConfig({
   plugins: [
