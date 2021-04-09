@@ -62,7 +62,7 @@ Note: `isDev` is included in your data by default
 The object below is the default data of the render function.
 ```javascript
 {
-  NODE_DEV: process.env.NODE_ENV,
+  NODE_ENV: process.env.NODE_ENV,
   isDev: process.env.NODE_ENV === "development"
 }
 ```
