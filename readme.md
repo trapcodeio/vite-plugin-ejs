@@ -32,6 +32,7 @@ export default defineConfig({
 });
 ```
 
+File: **index.html**
 ```ejs
 <!DOCTYPE html>
 <html lang="en">
