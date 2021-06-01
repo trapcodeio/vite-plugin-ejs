@@ -1,9 +1,9 @@
-import {Plugin} from "vite";
+import {Plugin, ResolvedConfig} from "vite";
 import ejs from "ejs";
 
 // ShortHand for EjsOptions or Undefined
 type EjsRenderOptions = (ejs.Options & { async: false }) | undefined;
-type ViteEjsPluginDataType = Record<string, any> | ((...args: any[]) => Record<string, any>);
+type ViteEjsPluginDataType = Record<string, any> | ((config: ResolvedConfig) => Record<string, any>);
 type ViteEjsPluginOptions = {ejs: EjsRenderOptions};
 /**
  * Vite Ejs Plugin Function
@@ -17,8 +17,15 @@ type ViteEjsPluginOptions = {ejs: EjsRenderOptions};
  * });
  */
 function ViteEjsPlugin(data: ViteEjsPluginDataType = {}, options?: ViteEjsPluginOptions): Plugin {
+    let config: ResolvedConfig;
+
     return {
         name: "vite-plugin-ejs",
+
+        // Get Resolved config
+        configResolved(resolvedConfig){
+            config = resolvedConfig;
+        },
 
         /**
          * Force full reload on .html change
@@ -35,13 +42,13 @@ function ViteEjsPlugin(data: ViteEjsPluginDataType = {}, options?: ViteEjsPlugin
             enforce: "pre",
             transform(html) {
                 try {
-                    if (typeof data === "function") data = data();
+                    if (typeof data === "function") data = data(config);
 
                     html = ejs.render(
                         html,
                         {
-                            NODE_ENV: process.env.NODE_ENV,
-                            isDev: process.env.NODE_ENV === "development",
+                            NODE_ENV: config.mode,
+                            isDev: config.mode === "development",
                             ...data
                         },
                         options?.ejs
