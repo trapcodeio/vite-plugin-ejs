@@ -27,17 +27,6 @@ function ViteEjsPlugin(data: ViteEjsPluginDataType = {}, options?: ViteEjsPlugin
             config = resolvedConfig;
         },
 
-        /**
-         * Force full reload on .html change
-         */
-        handleHotUpdate({file, server}) {
-            if (file.endsWith(".html")) {
-                server.ws.send({
-                    type: "full-reload"
-                });
-            }
-        },
-
         transformIndexHtml: {
             enforce: "pre",
             transform(html) {

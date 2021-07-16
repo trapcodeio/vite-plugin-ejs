@@ -33,6 +33,7 @@ export default defineConfig({
     ViteEjsPlugin((viteConfig) => {
       // viteConfig is the current viteResolved config.
       return {
+        root: viteConfig.root,
         domain: "example.com",
         title: "My vue project!"
       }
