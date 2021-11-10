@@ -5,6 +5,7 @@ import ejs from "ejs";
 type EjsRenderOptions = (ejs.Options & { async: false }) | undefined;
 type ViteEjsPluginDataType = Record<string, any> | ((config: ResolvedConfig) => Record<string, any>);
 type ViteEjsPluginOptions = {ejs: EjsRenderOptions};
+
 /**
  * Vite Ejs Plugin Function
  *
@@ -30,6 +31,7 @@ function ViteEjsPlugin(data: ViteEjsPluginDataType = {}, options?: ViteEjsPlugin
         transformIndexHtml: {
             enforce: "pre",
             transform(html) {
+                // config.isProduction
                 try {
                     if (typeof data === "function") data = data(config);
 
@@ -42,7 +44,7 @@ function ViteEjsPlugin(data: ViteEjsPluginDataType = {}, options?: ViteEjsPlugin
                         },
                         options?.ejs
                     );
-                } catch (e) {
+                } catch (e: any) {
                     return e.message;
                 }
 
