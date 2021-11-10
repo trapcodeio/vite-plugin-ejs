@@ -2,5 +2,5 @@ node_modules
 *.log
 .idea
 
-*.js
-*.d.ts
+*.ts
+!*.d.ts

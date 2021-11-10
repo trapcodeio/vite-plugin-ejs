@@ -13,9 +13,9 @@
     /* Specify library files to be included in the compilation. */
     "declaration": true,
     /* Generates corresponding '.d.ts' file. */
-    "declarationDir": "./dist",
+    "declarationDir": "./",
     /* Redirect output structure to the directory. */
-    "outDir": "./dist",
+    "outDir": "./",
     /* Redirect output structure to the directory. */
     /* Strict Type-Checking Options */
     "strict": true,
