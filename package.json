@@ -13,12 +13,12 @@
     "ts:watch": "npx tsc --watch"
   },
   "devDependencies": {
-    "@types/ejs": "^3.1.0",
-    "typescript": "^4.5.5",
-    "vite": "^2.8.3"
+    "@types/ejs": "^3.1.1",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.0"
   },
   "dependencies": {
-    "ejs": "^3.1.6"
+    "ejs": "^3.1.8"
   },
   "keywords": [
     "vite",
