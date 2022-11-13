@@ -32,7 +32,6 @@ function ViteEjsPlugin(data: ViteEjsPluginDataType = {}, options?: ViteEjsPlugin
         transformIndexHtml: {
             enforce: "pre",
             transform(html) {
-                // config.isProduction
                 try {
                     if (typeof data === "function") data = data(config);
                     let ejsOptions = options && options.ejs ? options.ejs : {};
@@ -47,7 +46,8 @@ function ViteEjsPlugin(data: ViteEjsPluginDataType = {}, options?: ViteEjsPlugin
                             ...data
                         },
                         {
-                            views: [config.root], // Set views directory that can be overwritten
+                            // setting views enables includes support
+                            views: [config.root],
                             ...ejsOptions,
                             async: false // Force sync
                         }

@@ -87,14 +87,6 @@ return {
 }
 ```
 
-## Configuration
-
-The `ViteEjsPlugin` has 2 configuration
-
-- `watchEjsFiles` - default: `false` - Watch for changes in ejs files and re-render the entrypoint
-- `ejsOptions` - default: `{views: [viteConfig.root]}` - Options for the ejs render function
-
-
 ### Configure EJS
 
 You can configure ejs by passing an object to the plugin.
