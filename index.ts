@@ -5,7 +5,7 @@ import ejs from "ejs";
 type EjsRenderOptions = ejs.Options & { async?: false };
 type EjsRenderOptionsFn = (config: ResolvedConfig) => EjsRenderOptions;
 type ViteEjsPluginDataType = Record<string, any> | ((config: ResolvedConfig) => Record<string, any>);
-type ViteEjsPluginOptions = { watchEjsFiles?: boolean, ejs?: EjsRenderOptions | EjsRenderOptionsFn };
+type ViteEjsPluginOptions = { ejs?: EjsRenderOptions | EjsRenderOptionsFn };
 
 /**
  * Vite Ejs Plugin Function
@@ -23,11 +23,6 @@ function ViteEjsPlugin(data: ViteEjsPluginDataType = {}, options?: ViteEjsPlugin
 
     return {
         name: "vite-plugin-ejs",
-
-        config(config) {
-            // Add .ejs extension to watch files.
-            if (options && options.watchEjsFiles) WatchEjsFiles(config);
-        },
 
         // Get Resolved config
         configResolved(resolvedConfig) {
@@ -67,21 +62,5 @@ function ViteEjsPlugin(data: ViteEjsPluginDataType = {}, options?: ViteEjsPlugin
     };
 }
 
-
-function WatchEjsFiles(config: UserConfig) {
-    // Add .ejs extension to watch files.
-    // get watch config
-    let watch = config.build ? config.build.watch : {};
-
-    // if none is defined, set to empty object
-    if (!watch) watch = {}
-    // check if watch.include is defined and if not, set to empty array
-    if (!watch.include) watch.include = [];
-    // if watch.include is not an array then convert to array
-    if (!Array.isArray(watch.include)) watch.include = [watch.include];
-
-    // Add ejs files to watch list
-    watch.include.push("**/*.ejs");
-}
 
 export {ViteEjsPlugin, ejs}
