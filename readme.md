@@ -2,7 +2,14 @@
 
 Use [ejs](https://www.npmjs.com/package/ejs) template language in your entrypoint i.e `index.html`
 
-### Install
+## Menu
+
+- [Installation](#installation)
+- [Usage](#usage)
+    - [Default Data](#default-data)
+    - [Configure EJS](#configure-ejs)
+
+### Installation
 
 ```sh
 npm i vite-plugin-ejs
@@ -69,7 +76,7 @@ File: **index.html**
 
 Note: `isDev` is included in your data by default
 
-### Default data
+### Default Data
 
 The object below is the default data of the render function.
 
@@ -78,4 +85,51 @@ return {
   NODE_ENV: config.mode,
   isDev: config.mode === "development"
 }
+```
+
+## Configuration
+
+The `ViteEjsPlugin` has 2 configuration
+
+- `watchEjsFiles` - default: `false` - Watch for changes in ejs files and re-render the entrypoint
+- `ejsOptions` - default: `{views: [viteConfig.root]}` - Options for the ejs render function
+
+
+### Configure EJS
+
+You can configure ejs by passing an object to the plugin.
+
+```js   
+export default defineConfig({
+  plugins: [
+    ViteEjsPlugin(
+        {title: 'My vue project!'},
+        {
+          ejs: {
+            // ejs options goes here.
+            beautify: true,
+          },
+        }
+    ),
+  ],
+});
+```
+
+If you want to use `viteconfig` to configure ejs, you can pass a function to the plugin, the function will receive the
+current vite config as the first argument.
+
+```js
+export default defineConfig({
+  plugins: [
+    ViteEjsPlugin(
+        {title: 'My vue project!'},
+        {
+          ejs: (viteConfig) => ({
+            // ejs options goes here.
+            views: [viteConfig.publicDir]
+          })
+        }
+    ),
+  ],
+});
 ```
