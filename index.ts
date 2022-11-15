@@ -32,29 +32,25 @@ function ViteEjsPlugin(data: ViteEjsPluginDataType = {}, options?: ViteEjsPlugin
         transformIndexHtml: {
             enforce: "pre",
             transform(html) {
-                try {
-                    if (typeof data === "function") data = data(config);
-                    let ejsOptions = options && options.ejs ? options.ejs : {};
-                    if (typeof ejsOptions === "function") ejsOptions = ejsOptions(config);
+                if (typeof data === "function") data = data(config);
+                let ejsOptions = options && options.ejs ? options.ejs : {};
+                if (typeof ejsOptions === "function") ejsOptions = ejsOptions(config);
 
 
-                    html = ejs.render(
-                        html,
-                        {
-                            NODE_ENV: config.mode,
-                            isDev: config.mode === "development",
-                            ...data
-                        },
-                        {
-                            // setting views enables includes support
-                            views: [config.root],
-                            ...ejsOptions,
-                            async: false // Force sync
-                        }
-                    );
-                } catch (e: any) {
-                    return e.message;
-                }
+                html = ejs.render(
+                    html,
+                    {
+                        NODE_ENV: config.mode,
+                        isDev: config.mode === "development",
+                        ...data
+                    },
+                    {
+                        // setting views enables includes support
+                        views: [config.root],
+                        ...ejsOptions,
+                        async: false // Force sync
+                    }
+                );
 
                 return html;
             }
