@@ -11,7 +11,7 @@
   "scripts": {
     "build": "npx tsc -p tsconfig.json",
     "watch": "npx tsc --watch",
-    "prepublishOnly": "npm run ts:build"
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@types/ejs": "^3.1.1",
