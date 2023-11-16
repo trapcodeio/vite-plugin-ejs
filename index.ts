@@ -1,4 +1,4 @@
-import {Plugin, ResolvedConfig, UserConfig} from "vite";
+import {Plugin, ResolvedConfig} from "vite";
 import ejs from "ejs";
 
 // ShortHand for EjsOptions or Undefined

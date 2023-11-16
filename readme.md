@@ -2,6 +2,8 @@
 
 Use [ejs](https://www.npmjs.com/package/ejs) template language in your entrypoint i.e `index.html`
 
+**Note:** For Vite version < `5` use [`v1.6.4`](https://www.npmjs.com/package/vite-plugin-ejs/v/1.6.4) of this plugin.
+
 ## Menu
 
 - [Installation](#installation)
