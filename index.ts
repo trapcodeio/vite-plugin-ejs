@@ -30,8 +30,8 @@ function ViteEjsPlugin(data: ViteEjsPluginDataType = {}, options?: ViteEjsPlugin
         },
 
         transformIndexHtml: {
-            enforce: "pre",
-            transform(html) {
+            order: "pre",
+            handler(html) {
                 if (typeof data === "function") data = data(config);
                 let ejsOptions = options && options.ejs ? options.ejs : {};
                 if (typeof ejsOptions === "function") ejsOptions = ejsOptions(config);
