@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-ejs",
-  "version": "1.6.4",
+  "version": "1.7.0",
   "description": "Use Ejs in your entrypoint i.e index.html",
   "main": "index.js",
   "types": "index.d.ts",
@@ -14,12 +14,15 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@types/ejs": "^3.1.1",
-    "typescript": "^4.9.3",
-    "vite": "^3.2.4"
+    "@types/ejs": "^3.1.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
   },
   "dependencies": {
-    "ejs": "^3.1.8"
+    "ejs": "^3.1.9"
+  },
+  "peerDependencies": {
+    "vite": ">=5.0.0"
   },
   "keywords": [
     "vite",
