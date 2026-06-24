@@ -18,14 +18,13 @@
   "devDependencies": {
     "@types/ejs": "^3.1.5",
     "@types/node": "^26.0.0",
+    "ejs": "^6.0.1",
     "typescript": "^6.0.3",
     "vite": "^8.1.0",
     "vitest": "^4.1.9"
   },
-  "dependencies": {
-    "ejs": "^6.0.1"
-  },
   "peerDependencies": {
+    "ejs": ">=3",
     "vite": ">=5.0.0"
   },
   "keywords": [

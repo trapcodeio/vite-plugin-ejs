@@ -2,21 +2,28 @@
 
 Use [ejs](https://www.npmjs.com/package/ejs) template language in your entrypoint i.e `index.html`
 
-**Note:** For Vite version < `5` use [`v1.6.4`](https://www.npmjs.com/package/vite-plugin-ejs/v/1.6.4) of this plugin.
 
 ## Menu
 
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
     - [Default Data](#default-data)
     - [Configure EJS](#configure-ejs)
 
+### Requirements
+
+`ejs` is a **peer dependency**, so you install it yourself. This lets you pick the `ejs` version
+you want (any of `3`, `4`, `5`, or `6`) instead of being locked to whatever the plugin bundles.
+
 ### Installation
 
+Install the plugin together with `ejs`:
+
 ```sh
-npm i vite-plugin-ejs
+npm i vite-plugin-ejs ejs
 # or
-yarn add vite-plugin-ejs
+yarn add vite-plugin-ejs ejs
 ```
 
 ### Usage
