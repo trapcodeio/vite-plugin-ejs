@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-ejs",
-  "version": "1.7.1",
+  "version": "2.0.0",
   "description": "Use Ejs in your entrypoint i.e index.html",
   "main": "index.js",
   "types": "index.d.ts",
@@ -11,17 +11,20 @@
   "scripts": {
     "build": "npx tsc -p tsconfig.json",
     "watch": "npx tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@types/ejs": "^3.1.5",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.0"
-  },
-  "dependencies": {
-    "ejs": "^3.1.9"
+    "@types/node": "^26.0.0",
+    "ejs": "^6.0.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.0",
+    "vitest": "^4.1.9"
   },
   "peerDependencies": {
+    "ejs": ">=3",
     "vite": ">=5.0.0"
   },
   "keywords": [
