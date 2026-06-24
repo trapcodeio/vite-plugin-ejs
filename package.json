@@ -11,12 +11,16 @@
   "scripts": {
     "build": "npx tsc -p tsconfig.json",
     "watch": "npx tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@types/ejs": "^3.1.5",
+    "@types/node": "^26.0.0",
     "typescript": "^5.2.2",
-    "vite": "^5.0.0"
+    "vite": "^5.0.0",
+    "vitest": "^4.1.9"
   },
   "dependencies": {
     "ejs": "^3.1.9"

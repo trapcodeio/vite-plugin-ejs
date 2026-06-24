@@ -1,6 +1,7 @@
 node_modules
 *.log
 .idea
+.claude
 
 *.js
 *.d.ts

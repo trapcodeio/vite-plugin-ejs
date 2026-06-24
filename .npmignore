@@ -1,6 +1,9 @@
 node_modules
 *.log
 .idea
+.claude
+tests
+vitest.config.ts
 
 *.ts
 !*.d.ts

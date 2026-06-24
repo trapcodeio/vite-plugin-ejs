@@ -27,7 +27,12 @@
     "forceConsistentCasingInFileNames": true
     /* Disallow inconsistently-cased references to the same file. */
   },
+  "include": [
+    "index.ts"
+  ],
   "exclude": [
-    "dist"
+    "dist",
+    "tests",
+    "vitest.config.ts"
   ]
 }
